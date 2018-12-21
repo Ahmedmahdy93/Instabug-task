@@ -14,6 +14,12 @@
 		1056FE0221CCF9FA00DCC489 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1056FE0021CCF9FA00DCC489 /* LaunchScreen.storyboard */; };
 		1056FE0D21CCF9FA00DCC489 /* Instabug_iOS_AssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE0C21CCF9FA00DCC489 /* Instabug_iOS_AssessmentTests.swift */; };
 		1056FE1821CCF9FA00DCC489 /* Instabug_iOS_AssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE1721CCF9FA00DCC489 /* Instabug_iOS_AssessmentUITests.swift */; };
+		1056FE3C21CD599E00DCC489 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE3B21CD599E00DCC489 /* Result.swift */; };
+		1056FE3E21CD59CE00DCC489 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE3D21CD59CE00DCC489 /* EndPoint.swift */; };
+		1056FE4021CD5A0400DCC489 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE3F21CD5A0400DCC489 /* APIClient.swift */; };
+		1056FE4221CD5A3000DCC489 /* MovieClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE4121CD5A3000DCC489 /* MovieClient.swift */; };
+		1056FE4521CD5A8000DCC489 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE4421CD5A8000DCC489 /* Movie.swift */; };
+		1056FE4721CD5A8F00DCC489 /* MovieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE4621CD5A8F00DCC489 /* MovieResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,12 @@
 		1056FE1321CCF9FA00DCC489 /* Instabug-iOS-AssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Instabug-iOS-AssessmentUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1056FE1721CCF9FA00DCC489 /* Instabug_iOS_AssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instabug_iOS_AssessmentUITests.swift; sourceTree = "<group>"; };
 		1056FE1921CCF9FA00DCC489 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1056FE3B21CD599E00DCC489 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		1056FE3D21CD59CE00DCC489 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		1056FE3F21CD5A0400DCC489 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		1056FE4121CD5A3000DCC489 /* MovieClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieClient.swift; sourceTree = "<group>"; };
+		1056FE4421CD5A8000DCC489 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		1056FE4621CD5A8F00DCC489 /* MovieResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +109,8 @@
 		1056FDF621CCF9F800DCC489 /* Instabug-iOS-Assessment */ = {
 			isa = PBXGroup;
 			children = (
+				1056FE4321CD5A6F00DCC489 /* Model */,
+				1056FE3A21CD598400DCC489 /* Networking */,
 				1056FDF721CCF9F800DCC489 /* AppDelegate.swift */,
 				1056FDF921CCF9F800DCC489 /* ViewController.swift */,
 				1056FDFB21CCF9F800DCC489 /* Main.storyboard */,
@@ -123,6 +137,26 @@
 				1056FE1921CCF9FA00DCC489 /* Info.plist */,
 			);
 			path = "Instabug-iOS-AssessmentUITests";
+			sourceTree = "<group>";
+		};
+		1056FE3A21CD598400DCC489 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1056FE3B21CD599E00DCC489 /* Result.swift */,
+				1056FE3D21CD59CE00DCC489 /* EndPoint.swift */,
+				1056FE3F21CD5A0400DCC489 /* APIClient.swift */,
+				1056FE4121CD5A3000DCC489 /* MovieClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		1056FE4321CD5A6F00DCC489 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1056FE4421CD5A8000DCC489 /* Movie.swift */,
+				1056FE4621CD5A8F00DCC489 /* MovieResult.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +290,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1056FE4521CD5A8000DCC489 /* Movie.swift in Sources */,
+				1056FE3C21CD599E00DCC489 /* Result.swift in Sources */,
+				1056FE4221CD5A3000DCC489 /* MovieClient.swift in Sources */,
+				1056FE4721CD5A8F00DCC489 /* MovieResult.swift in Sources */,
 				1056FDFA21CCF9F800DCC489 /* ViewController.swift in Sources */,
+				1056FE3E21CD59CE00DCC489 /* EndPoint.swift in Sources */,
+				1056FE4021CD5A0400DCC489 /* APIClient.swift in Sources */,
 				1056FDF821CCF9F800DCC489 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
