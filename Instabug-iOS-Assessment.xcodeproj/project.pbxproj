@@ -22,9 +22,7 @@
 		1056FE4521CD5A8000DCC489 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE4421CD5A8000DCC489 /* Movie.swift */; };
 		1056FE4721CD5A8F00DCC489 /* MovieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE4621CD5A8F00DCC489 /* MovieResult.swift */; };
 		1056FE4C21CD7C8300DCC489 /* MovieListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1056FE4B21CD7C8300DCC489 /* MovieListCell.xib */; };
-		1056FE4E21CD7C9E00DCC489 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1056FE4D21CD7C9E00DCC489 /* LoadingCell.xib */; };
 		1056FE5021CD7CB500DCC489 /* MovieListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE4F21CD7CB500DCC489 /* MovieListCell.swift */; };
-		1056FE5221CD7CC300DCC489 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE5121CD7CC300DCC489 /* LoadingCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,9 +64,7 @@
 		1056FE4421CD5A8000DCC489 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		1056FE4621CD5A8F00DCC489 /* MovieResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResult.swift; sourceTree = "<group>"; };
 		1056FE4B21CD7C8300DCC489 /* MovieListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListCell.xib; sourceTree = "<group>"; };
-		1056FE4D21CD7C9E00DCC489 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		1056FE4F21CD7CB500DCC489 /* MovieListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListCell.swift; sourceTree = "<group>"; };
-		1056FE5121CD7CC300DCC489 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,8 +196,6 @@
 			children = (
 				1056FE4B21CD7C8300DCC489 /* MovieListCell.xib */,
 				1056FE4F21CD7CB500DCC489 /* MovieListCell.swift */,
-				1056FE4D21CD7C9E00DCC489 /* LoadingCell.xib */,
-				1056FE5121CD7CC300DCC489 /* LoadingCell.swift */,
 			);
 			path = ViewCells;
 			sourceTree = "<group>";
@@ -312,7 +306,6 @@
 			files = (
 				1056FDFF21CCF9FA00DCC489 /* Assets.xcassets in Resources */,
 				1056FE4C21CD7C8300DCC489 /* MovieListCell.xib in Resources */,
-				1056FE4E21CD7C9E00DCC489 /* LoadingCell.xib in Resources */,
 				1056FDFD21CCF9F800DCC489 /* Movies.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,7 +335,6 @@
 				1056FE3C21CD599E00DCC489 /* Result.swift in Sources */,
 				1056FE4221CD5A3000DCC489 /* MovieClient.swift in Sources */,
 				1056FE4721CD5A8F00DCC489 /* MovieResult.swift in Sources */,
-				1056FE5221CD7CC300DCC489 /* LoadingCell.swift in Sources */,
 				1056FDFA21CCF9F800DCC489 /* MovieListView.swift in Sources */,
 				10401A9921CDB46C00DC3815 /* UIImageView+Extension.swift in Sources */,
 				1056FE3E21CD59CE00DCC489 /* EndPoint.swift in Sources */,

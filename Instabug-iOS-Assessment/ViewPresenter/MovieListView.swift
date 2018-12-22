@@ -28,7 +28,6 @@ class MovieListViewController: UIViewController {
         moviesTable.delegate = self
         moviesTable.dataSource = self
         moviesTable.register(UINib(nibName: "MovieListCell", bundle: nil), forCellReuseIdentifier: "MovieListCell")
-        moviesTable.register(UINib(nibName: "LoadingCell", bundle: nil), forCellReuseIdentifier: "LoadingCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +41,12 @@ extension MovieListViewController: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if self.presenter.canLoadMore(indexPath: indexPath) {
+        let lastSectionIndex = moviesTable.numberOfSections - 1
+        let lastRowIndex = moviesTable.numberOfRows(inSection: lastSectionIndex) - 1
+        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
+            addLoadingIndicator()
             self.presenter.loadNextPage()
+        }
         }
     }
     
@@ -69,7 +73,13 @@ extension MovieListViewController: UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     
-    
+    func addLoadingIndicator(){
+        let spinner = UIActivityIndicatorView(style: .gray)
+        spinner.startAnimating()
+        spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: moviesTable.bounds.width, height: CGFloat(44))
+        self.moviesTable.tableFooterView = spinner
+        self.moviesTable.tableFooterView?.isHidden = false
+    }
 }
 extension MovieListViewController: MovieListView {
     
