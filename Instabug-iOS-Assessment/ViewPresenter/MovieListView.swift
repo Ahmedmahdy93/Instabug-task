@@ -14,9 +14,22 @@ protocol MovieListView: NSObjectProtocol {
 
 class MovieListViewController: UIViewController {
     
+    @IBOutlet weak var moviesSegmentControl: UISegmentedControl!
     @IBOutlet weak var moviesTable: UITableView!
     
     private let presenter = MovieListPresenter()
+    
+    @IBAction func moviesSegmentSelected(_ sender: UISegmentedControl) {
+        switch moviesSegmentControl.selectedSegmentIndex {
+        case 1:
+            moviesTable.reloadData()
+        case 0:
+            moviesTable.reloadData()
+        default:
+            break;
+        }
+    }
+    
     
     var dataSource : [Movie]?
     
@@ -27,6 +40,10 @@ class MovieListViewController: UIViewController {
         
         moviesTable.delegate = self
         moviesTable.dataSource = self
+        moviesTable.rowHeight = UITableView.automaticDimension
+        moviesTable.estimatedRowHeight = 600
+        
+        
         moviesTable.register(UINib(nibName: "MovieListCell", bundle: nil), forCellReuseIdentifier: "MovieListCell")
     }
     
@@ -38,16 +55,44 @@ class MovieListViewController: UIViewController {
 extension MovieListViewController: UITableViewDelegate,UITableViewDataSource{
     
     // MARK: - UITableViewDelegate Method
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if moviesSegmentControl.selectedSegmentIndex == 1 {
+            return 50
+        }
+        return 0
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let frame: CGRect = tableView.frame
+        let DoneBut: UIButton = UIButton(frame: CGRect(x: frame.size.width - 50, y: 0, width: 50, height: 50))
+        DoneBut.setTitle("+", for: .normal)
+        DoneBut.backgroundColor = UIColor.blue
+        DoneBut.addTarget(self, action: #selector(pressed), for: .touchUpInside)
+        let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.height, height: frame.size.width))
+        headerView.addSubview(DoneBut)
+        return headerView
+    }
+    
+    
+    @objc func pressed(sender: UIButton!) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Movies", bundle:nil)
+        let addMovieViewController = storyBoard.instantiateViewController(withIdentifier: "MyMovieViewController") as! MyMovieViewController
+        self.present(addMovieViewController, animated: true, completion: nil)
+    }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if self.presenter.canLoadMore(indexPath: indexPath) {
-        let lastSectionIndex = moviesTable.numberOfSections - 1
-        let lastRowIndex = moviesTable.numberOfRows(inSection: lastSectionIndex) - 1
-        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
-            addLoadingIndicator()
-            self.presenter.loadNextPage()
+        if moviesSegmentControl.selectedSegmentIndex == 0 {
+            if self.presenter.canLoadMore(indexPath: indexPath) {
+                let lastSectionIndex = moviesTable.numberOfSections - 1
+                let lastRowIndex = moviesTable.numberOfRows(inSection: lastSectionIndex) - 1
+                if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
+                    addLoadingIndicator()
+                    self.presenter.loadNextPage()
+                }
+            }
         }
-        }
+        
     }
     
     // MARK: - UITableViewDataSource
@@ -65,7 +110,7 @@ extension MovieListViewController: UITableViewDelegate,UITableViewDataSource{
             cell.overviewLabel.text = movie.overview
             
             cell.posterImage.image = nil
-            if let imageURL = presenter.posterUrl(movie: movie) {
+            if let imageURL = posterUrl(movie: movie) {
                 cell.posterImage.load(url: imageURL)
             }
         }
@@ -86,8 +131,5 @@ extension MovieListViewController: MovieListView {
     func finishLoading(movies: [Movie]) {
         dataSource = movies
         moviesTable.reloadData()
-        // TODO: add callback for error!!!
     }
-    
-    
 }

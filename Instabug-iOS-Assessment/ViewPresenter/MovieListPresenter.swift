@@ -8,7 +8,23 @@
 
 import Foundation
 
-class MovieListPresenter {
+protocol MoviePresenter {
+    func setView(view: MovieListView)
+    func loadMovies()
+}
+enum source {
+    case networking(_ movie: [Movie])
+    case myMovies(_ movies: [Movie])
+    var movies: [Movie] {
+        switch self {
+        case .networking(let movies):
+            return movies
+        case .myMovies(let movies):
+            return movies
+        }
+    }
+}
+class MovieListPresenter : MoviePresenter {
     
     weak private var view: MovieListView?
     private let client = MovieClient()
@@ -66,11 +82,12 @@ class MovieListPresenter {
         }
         return false
     }
-    func posterUrl(movie: Movie) -> URL? {
-        guard let path = movie.poster_path else{ return nil }
-        if let url = URL(string: MovieCategory.posterPath + path) {
-            return url
-        }
-        return nil
+    
+}
+func posterUrl(movie: Movie) -> URL? {
+    guard let path = movie.poster_path else{ return nil }
+    if let url = URL(string: MovieCategory.posterPath + path) {
+        return url
     }
+    return nil
 }
