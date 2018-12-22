@@ -8,5 +8,8 @@
 
 import Foundation
 struct MovieResult: Decodable {
+    var page: Int
+    var total_pages: Int
+    var total_results: Int
     let results: [Movie]?
 }

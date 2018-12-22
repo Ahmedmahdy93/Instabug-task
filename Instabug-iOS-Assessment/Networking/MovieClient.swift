@@ -24,11 +24,5 @@ class MovieClient: APIClient {
             return movieCategoryResult
         }, completion: completion)
     }
-    func smallCoverUrl(movie: Movie) -> URL? {
-        guard let path = movie.poster_path else{ return nil }
-        if let url = URL(string: MovieCategory.posterPath + path) {
-            return url
-        }
-        return nil
-    }
+    
 }
