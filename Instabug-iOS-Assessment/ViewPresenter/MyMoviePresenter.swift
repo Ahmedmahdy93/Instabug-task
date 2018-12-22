@@ -7,11 +7,30 @@
 //
 
 import Foundation
+
 class MyMoviePresenter {
     weak private var view: MyMovieViewController?
-    
+    private let dataSourceInstance = MovieDataSource.instance
+
+    var newMovieImageURL: URL?
+    var movieTitle: String?
+    var movieDate: String?
+    var movieOverview: String?
+    var moviePoster: String?
     
     func setView(view: MyMovieViewController) {
         self.view = view
+    }
+    func getMovieDataEntered(){
+        movieTitle = self.view?.movieTitle.text
+        movieDate = self.view?.movieDate.text
+        movieOverview = self.view?.movieOverview.text
+        moviePoster = self.view?.posterURL?.absoluteString
+    }
+    func setNewMovie(){
+        getMovieDataEntered()
+        let addedMovie = Movie.init(title: movieTitle, overview: movieOverview, release_date: movieDate, poster_path: moviePoster)
+        dataSourceInstance.addNewMovie(movie: addedMovie)
+        self.view?.addingComplete()
     }
 }

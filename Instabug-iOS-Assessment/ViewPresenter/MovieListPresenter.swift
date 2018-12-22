@@ -8,26 +8,11 @@
 
 import Foundation
 
-protocol MoviePresenter {
-    func setView(view: MovieListView)
-    func loadMovies()
-}
-enum source {
-    case networking(_ movie: [Movie])
-    case myMovies(_ movies: [Movie])
-    var movies: [Movie] {
-        switch self {
-        case .networking(let movies):
-            return movies
-        case .myMovies(let movies):
-            return movies
-        }
-    }
-}
-class MovieListPresenter : MoviePresenter {
+class MovieListPresenter {
     
     weak private var view: MovieListView?
     private let client = MovieClient()
+    private let dataSourceInstance = MovieDataSource.instance
     
     var isLoading = false
     var currentPage = 0
@@ -39,8 +24,19 @@ class MovieListPresenter : MoviePresenter {
     }
     
     func loadMovies(){
-        if self.lastMovieResult == nil {
+        if lastMovieResult == nil {
             self.loadDataFromPage(page: 1)
+        }
+        else {
+            self.view?.finishLoading(movies: movies!)
+        }
+    }
+    func loadMyMovies(){
+        if self.dataSourceInstance.myMovies != nil{
+            self.view?.finishLoading(movies: self.dataSourceInstance.myMovies!)
+        }
+        else {
+            self.view?.finishLoading(movies: [])
         }
     }
     func loadDataFromPage(page: Int) {
@@ -60,7 +56,7 @@ class MovieListPresenter : MoviePresenter {
         }
     }
     func loadNextPage() {
-        self.loadDataFromPage(page: self.currentPage + 1)
+        self.loadDataFromPage(page: currentPage + 1)
     }
     
     func setMovieResult(newList: MovieResult) {
@@ -83,11 +79,4 @@ class MovieListPresenter : MoviePresenter {
         return false
     }
     
-}
-func posterUrl(movie: Movie) -> URL? {
-    guard let path = movie.poster_path else{ return nil }
-    if let url = URL(string: MovieCategory.posterPath + path) {
-        return url
-    }
-    return nil
 }

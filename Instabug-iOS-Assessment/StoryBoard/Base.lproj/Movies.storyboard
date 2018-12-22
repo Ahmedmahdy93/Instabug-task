@@ -103,32 +103,35 @@
                                     <action selector="cancellButton:" destination="9Uo-su-hZ9" eventType="touchUpInside" id="gYJ-13-Yn3"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tWX-gq-OZW">
-                                <rect key="frame" x="147" y="407" width="81" height="120"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZvQ-cU-OL8">
+                                <rect key="frame" x="95" y="430" width="185" height="46"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="2uA-ma-DNq"/>
-                                    <constraint firstAttribute="width" constant="81" id="pQg-gO-KX1"/>
+                                    <constraint firstAttribute="height" constant="46" id="00b-nw-hY6"/>
+                                    <constraint firstAttribute="width" constant="185" id="VBL-DP-HeL"/>
                                 </constraints>
-                            </imageView>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Choose Image"/>
+                                <connections>
+                                    <action selector="chooseImage:" destination="9Uo-su-hZ9" eventType="touchUpInside" id="7Wm-DA-ANQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Tt9-yW-e25" firstAttribute="leading" secondItem="JbA-zA-6if" secondAttribute="leading" id="4HK-vP-9ww"/>
                             <constraint firstItem="Cnw-za-fKB" firstAttribute="trailing" secondItem="FDL-Ue-qmu" secondAttribute="trailing" constant="28" id="4JP-5J-IyY"/>
                             <constraint firstItem="FDL-Ue-qmu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="s6I-nT-uqT" secondAttribute="trailing" constant="8" symbolic="YES" id="9rb-b8-n8b"/>
-                            <constraint firstItem="Cnw-za-fKB" firstAttribute="bottom" secondItem="tWX-gq-OZW" secondAttribute="bottom" constant="140" id="GNJ-z4-ktG"/>
                             <constraint firstItem="Tt9-yW-e25" firstAttribute="top" secondItem="JbA-zA-6if" secondAttribute="bottom" constant="50" id="KyT-bH-aSX"/>
                             <constraint firstItem="Tt9-yW-e25" firstAttribute="trailing" secondItem="JbA-zA-6if" secondAttribute="trailing" id="OKN-2p-Wtb"/>
                             <constraint firstItem="JbA-zA-6if" firstAttribute="top" secondItem="Cnw-za-fKB" secondAttribute="top" constant="70" id="QHa-VP-ccw"/>
-                            <constraint firstItem="tWX-gq-OZW" firstAttribute="centerX" secondItem="Cnw-za-fKB" secondAttribute="centerX" id="RIJ-AO-WVr"/>
                             <constraint firstItem="JbA-zA-6if" firstAttribute="leading" secondItem="Cnw-za-fKB" secondAttribute="leading" constant="67" id="XbU-V9-Xd0"/>
                             <constraint firstItem="Q7F-6X-CqX" firstAttribute="centerX" secondItem="Cnw-za-fKB" secondAttribute="centerX" id="Ykp-9E-Klb"/>
-                            <constraint firstItem="tWX-gq-OZW" firstAttribute="top" secondItem="Q7F-6X-CqX" secondAttribute="bottom" constant="55" id="dEs-dE-kTt"/>
-                            <constraint firstItem="Q7F-6X-CqX" firstAttribute="centerX" secondItem="tWX-gq-OZW" secondAttribute="centerX" id="drb-Ck-9S0"/>
+                            <constraint firstItem="ZvQ-cU-OL8" firstAttribute="centerX" secondItem="Cnw-za-fKB" secondAttribute="centerX" id="daC-qh-7Oo"/>
+                            <constraint firstItem="ZvQ-cU-OL8" firstAttribute="top" secondItem="Q7F-6X-CqX" secondAttribute="bottom" constant="78" id="eSu-Nr-5nN"/>
                             <constraint firstItem="Tt9-yW-e25" firstAttribute="centerX" secondItem="Q7F-6X-CqX" secondAttribute="centerX" id="nXN-iZ-fhE"/>
                             <constraint firstItem="s6I-nT-uqT" firstAttribute="top" secondItem="Cnw-za-fKB" secondAttribute="top" constant="14" id="ogj-w4-bNl"/>
                             <constraint firstItem="FDL-Ue-qmu" firstAttribute="top" secondItem="Cnw-za-fKB" secondAttribute="top" constant="14" id="qx1-WV-vFQ"/>
-                            <constraint firstItem="tWX-gq-OZW" firstAttribute="leading" secondItem="Cnw-za-fKB" secondAttribute="leading" constant="147" id="qxM-ao-S2j"/>
                             <constraint firstItem="s6I-nT-uqT" firstAttribute="leading" secondItem="Cnw-za-fKB" secondAttribute="leading" constant="15" id="rba-gw-WzS"/>
                             <constraint firstItem="Q7F-6X-CqX" firstAttribute="top" secondItem="Tt9-yW-e25" secondAttribute="bottom" constant="24" id="x5i-AZ-etM"/>
                             <constraint firstItem="JbA-zA-6if" firstAttribute="leading" secondItem="Q7F-6X-CqX" secondAttribute="leading" id="xaa-nZ-vrU"/>
@@ -137,7 +140,6 @@
                     </view>
                     <connections>
                         <outlet property="movieDate" destination="Tt9-yW-e25" id="tlx-6s-PAa"/>
-                        <outlet property="movieImage" destination="tWX-gq-OZW" id="1vt-Xk-qA3"/>
                         <outlet property="movieOverview" destination="Q7F-6X-CqX" id="0Pr-hg-n5B"/>
                         <outlet property="movieTitle" destination="JbA-zA-6if" id="AXG-Pv-mtv"/>
                     </connections>

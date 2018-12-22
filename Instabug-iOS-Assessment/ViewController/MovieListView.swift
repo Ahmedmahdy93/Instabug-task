@@ -18,20 +18,18 @@ class MovieListViewController: UIViewController {
     @IBOutlet weak var moviesTable: UITableView!
     
     private let presenter = MovieListPresenter()
+    var dataSource : [Movie]?
     
     @IBAction func moviesSegmentSelected(_ sender: UISegmentedControl) {
         switch moviesSegmentControl.selectedSegmentIndex {
         case 1:
-            moviesTable.reloadData()
+            self.presenter.loadMyMovies()
         case 0:
-            moviesTable.reloadData()
+            self.presenter.loadMovies()
         default:
-            break;
+            break
         }
     }
-    
-    
-    var dataSource : [Movie]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +46,15 @@ class MovieListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.presenter.loadMovies()
+        switch moviesSegmentControl.selectedSegmentIndex {
+        case 1:
+            self.presenter.loadMyMovies()
+        case 0:
+            self.presenter.loadMovies()
+        default:
+            break
+        }
+        
     }
 
 }
@@ -110,8 +116,13 @@ extension MovieListViewController: UITableViewDelegate,UITableViewDataSource{
             cell.overviewLabel.text = movie.overview
             
             cell.posterImage.image = nil
-            if let imageURL = posterUrl(movie: movie) {
+            if moviesSegmentControl.selectedSegmentIndex == 1{
+                 let imageURL = posterUrl(movie: movie,localImage: true)
                 cell.posterImage.load(url: imageURL)
+            }
+            else {
+                let imageURL = posterUrl(movie: movie,localImage: false)
+                    cell.posterImage.load(url: imageURL)
             }
         }
         
