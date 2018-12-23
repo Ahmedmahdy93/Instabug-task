@@ -15,7 +15,7 @@ class MyMovieViewController : UIViewController {
     private let presenter = MyMoviePresenter()
     
     @IBAction func doneButton(_ sender: Any) {
-        self.presenter.setNewMovie()
+        self.presenter.setNewMovie(type: .MyMovies)
     }
 
     @IBAction func cancellButton(_ sender: Any) {
