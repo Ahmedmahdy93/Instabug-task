@@ -17,13 +17,13 @@ extension UIImageView {
                         self?.image = image
                     }
                 }
-            } else {
-            DispatchQueue.main.async {
-            self?.image = UIImage(named: "DefaultImage")
             }
+            do{
+                DispatchQueue.main.async {
+                    self?.image = UIImage(named: "DefaultImage")
+                }
             }
         }
     }
-    
 }
 
