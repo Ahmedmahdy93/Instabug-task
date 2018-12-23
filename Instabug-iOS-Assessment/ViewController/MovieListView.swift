@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MovieListView: NSObjectProtocol {
-    func finishLoading(movies: [Movie])
+    func finishLoading(movies: [Movie]?)
 }
 
 class MovieListViewController: UIViewController {
@@ -22,10 +22,12 @@ class MovieListViewController: UIViewController {
     
     @IBAction func moviesSegmentSelected(_ sender: UISegmentedControl) {
         switch moviesSegmentControl.selectedSegmentIndex {
-        case 1:
-            self.presenter.loadMyMovies()
         case 0:
-            self.presenter.loadMovies()
+            self.presenter.presentMovies(selectedSegment: .AllMovies)
+            break
+        case 1:
+            self.presenter.presentMovies(selectedSegment: .MyMovies)
+            break
         default:
             break
         }
@@ -47,10 +49,12 @@ class MovieListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         switch moviesSegmentControl.selectedSegmentIndex {
-        case 1:
-            self.presenter.loadMyMovies()
         case 0:
-            self.presenter.loadMovies()
+            self.presenter.presentMovies(selectedSegment: .AllMovies)
+            break
+        case 1:
+            self.presenter.presentMovies(selectedSegment: .MyMovies)
+            break
         default:
             break
         }
@@ -75,7 +79,7 @@ extension MovieListViewController: UITableViewDelegate,UITableViewDataSource{
         DoneBut.setTitle("+", for: .normal)
         DoneBut.backgroundColor = UIColor.blue
         DoneBut.addTarget(self, action: #selector(pressed), for: .touchUpInside)
-        let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.height, height: frame.size.width))
+        let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: 50))
         headerView.addSubview(DoneBut)
         return headerView
     }
@@ -88,19 +92,29 @@ extension MovieListViewController: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if moviesSegmentControl.selectedSegmentIndex == 0 {
-            if self.presenter.canLoadMore(indexPath: indexPath) {
-                let lastSectionIndex = moviesTable.numberOfSections - 1
-                let lastRowIndex = moviesTable.numberOfRows(inSection: lastSectionIndex) - 1
-                if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
-                    addLoadingIndicator()
-                    self.presenter.loadNextPage()
-                }
-            }
+        switch moviesSegmentControl.selectedSegmentIndex {
+        case 0:
+            loadMore(indexPath: indexPath, type: .AllMovies)
+            break
+        case 1:
+            loadMore(indexPath: indexPath, type: .MyMovies)
+            break
+        default:
+            break
         }
         
     }
     
+    func loadMore(indexPath: IndexPath,type:SelectedSegment){
+        let lastSectionIndex = moviesTable.numberOfSections - 1
+        let lastRowIndex = moviesTable.numberOfRows(inSection: lastSectionIndex) - 1
+        if self.presenter.canLoadMore(indexPath: indexPath) {
+            if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
+                addLoadingIndicator()
+                self.presenter.loadNextPage()
+            }
+        }
+    }
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -136,11 +150,19 @@ extension MovieListViewController: UITableViewDelegate,UITableViewDataSource{
         self.moviesTable.tableFooterView = spinner
         self.moviesTable.tableFooterView?.isHidden = false
     }
+    func removeLoadingIndicator(){
+        self.moviesTable.tableFooterView?.isHidden = true
+    }
 }
 extension MovieListViewController: MovieListView {
     
-    func finishLoading(movies: [Movie]) {
+    func finishLoading(movies: [Movie]?) {
         dataSource = movies
+        removeLoadingIndicator()
         moviesTable.reloadData()
     }
+}
+enum SelectedSegment{
+    case AllMovies
+    case MyMovies
 }

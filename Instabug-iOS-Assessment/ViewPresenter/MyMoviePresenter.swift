@@ -27,10 +27,13 @@ class MyMoviePresenter {
         movieOverview = self.view?.movieOverview.text
         moviePoster = self.view?.posterURL?.absoluteString
     }
-    func setNewMovie(){
+    
+    func setNewMovie(type: SelectedSegment){
         getMovieDataEntered()
         let addedMovie = Movie.init(title: movieTitle, overview: movieOverview, release_date: movieDate, poster_path: moviePoster)
-        dataSourceInstance.addNewMovie(movie: addedMovie)
+       let provider:MovieRepository = MovieProviderRepository.getProviderInstance(providerType: type)
+        
+        provider.addNewMovie(movie: addedMovie)
         self.view?.addingComplete()
     }
 }

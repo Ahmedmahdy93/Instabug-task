@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Photos
 
 
 class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -16,15 +17,38 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
     var alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
     var viewController: UIViewController?
     var pickImageCallback : ((URL) -> ())?
+    var isAuthorized: Bool = false
     
     override init(){
         super.init()
+        checkPermission()
+    }
+    func checkPermission(){
+        let photoAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
+        switch photoAuthorizationStatus {
+        case .authorized:
+            isAuthorized = true
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization({[weak self]
+                (newStatus)  in
+                if newStatus ==  PHAuthorizationStatus.authorized {
+                    self?.isAuthorized = true
+                }
+                
+            })
+        case .restricted:
+            isAuthorized = false
+        case .denied:
+            isAuthorized = false
+        }
+        
     }
     
     func pickImage(_ viewController: UIViewController, _ callback: @escaping ((URL) -> ())) {
+        if isAuthorized {
         pickImageCallback = callback
         self.viewController = viewController
-        
+        checkPermission()
         
         let gallaryAction = UIAlertAction(title: "Gallary", style: .default){
             UIAlertAction in
@@ -39,6 +63,7 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
         alert.addAction(cancelAction)
         alert.popoverPresentationController?.sourceView = self.viewController!.view
         viewController.present(alert, animated: true, completion: nil)
+        }
     }
     func openGallery(){
         alert.dismiss(animated: true, completion: nil)
