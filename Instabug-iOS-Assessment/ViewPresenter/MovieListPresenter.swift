@@ -12,6 +12,7 @@ class MovieListPresenter {
     
     weak private var view: MovieListView?
     private let client = MovieClient()
+    private let dataSourceInstance = MovieDataSource.instance
     
     var isLoading = false
     var currentPage = 0
@@ -23,8 +24,19 @@ class MovieListPresenter {
     }
     
     func loadMovies(){
-        if self.lastMovieResult == nil {
+        if lastMovieResult == nil {
             self.loadDataFromPage(page: 1)
+        }
+        else {
+            self.view?.finishLoading(movies: movies!)
+        }
+    }
+    func loadMyMovies(){
+        if self.dataSourceInstance.myMovies != nil{
+            self.view?.finishLoading(movies: self.dataSourceInstance.myMovies!)
+        }
+        else {
+            self.view?.finishLoading(movies: [])
         }
     }
     func loadDataFromPage(page: Int) {
@@ -44,7 +56,7 @@ class MovieListPresenter {
         }
     }
     func loadNextPage() {
-        self.loadDataFromPage(page: self.currentPage + 1)
+        self.loadDataFromPage(page: currentPage + 1)
     }
     
     func setMovieResult(newList: MovieResult) {
@@ -66,11 +78,5 @@ class MovieListPresenter {
         }
         return false
     }
-    func posterUrl(movie: Movie) -> URL? {
-        guard let path = movie.poster_path else{ return nil }
-        if let url = URL(string: MovieCategory.posterPath + path) {
-            return url
-        }
-        return nil
-    }
+    
 }
