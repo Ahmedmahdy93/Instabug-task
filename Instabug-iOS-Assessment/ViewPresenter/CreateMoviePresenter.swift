@@ -8,9 +8,8 @@
 
 import Foundation
 
-class MyMoviePresenter {
-    weak private var view: MyMovieViewController?
-    private let dataSourceInstance = MovieDataSource.instance
+class CreateMoviePresenter {
+    weak private var view: CreateMovieViewController?
 
     var newMovieImageURL: URL?
     var movieTitle: String?
@@ -18,7 +17,7 @@ class MyMoviePresenter {
     var movieOverview: String?
     var moviePoster: String?
     
-    func setView(view: MyMovieViewController) {
+    func setView(view: CreateMovieViewController) {
         self.view = view
     }
     func getMovieDataEntered(){

@@ -11,8 +11,8 @@ import UIKit
 protocol MyMovieData {
     func addingComplete()
 }
-class MyMovieViewController : UIViewController {
-    private let presenter = MyMoviePresenter()
+class CreateMovieViewController : UIViewController {
+    private let presenter = CreateMoviePresenter()
     
     @IBAction func doneButton(_ sender: Any) {
         self.presenter.setNewMovie(type: .MyMovies)
@@ -39,7 +39,7 @@ class MyMovieViewController : UIViewController {
     }
     
 }
-extension MyMovieViewController: MyMovieData{
+extension CreateMovieViewController: MyMovieData{
     func addingComplete() {
         self.dismiss(animated: true, completion: nil)
     }
