@@ -18,12 +18,11 @@ extension UIImageView {
                     }
                 }
             }
-            do{
-                DispatchQueue.main.async {
-                    self?.image = UIImage(named: "DefaultImage")
-                }
+        }
+        do{
+            DispatchQueue.main.async {
+                self.image = UIImage(named: "DefaultImage")
             }
         }
     }
 }
-
