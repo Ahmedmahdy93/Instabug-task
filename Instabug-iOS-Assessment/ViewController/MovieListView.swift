@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MovieListView: NSObjectProtocol {
-    func finishLoading(movies: [Movie]?)
+    func finishLoading()
 }
 
 class MovieListViewController: UIViewController {
@@ -18,7 +18,7 @@ class MovieListViewController: UIViewController {
     @IBOutlet weak var moviesTable: UITableView!
     
     private let presenter = MovieListPresenter()
-    var dataSource : [Movie]?
+    
     
     @IBAction func moviesSegmentSelected(_ sender: UISegmentedControl) {
         switch moviesSegmentControl.selectedSegmentIndex {
@@ -118,13 +118,13 @@ extension MovieListViewController: UITableViewDelegate,UITableViewDataSource{
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource?.count ?? 0
+        return self.presenter.dataSource?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MovieListCell = tableView.dequeueReusableCell(withIdentifier: "MovieListCell", for: indexPath) as! MovieListCell
         
-        if let movie = dataSource?[indexPath.row] {
+        if let movie = self.presenter.dataSource?[indexPath.row] {
             cell.titleLabel.text = movie.title
             cell.dateLabel.text = movie.release_date
             cell.overviewLabel.text = movie.overview
@@ -156,8 +156,7 @@ extension MovieListViewController: UITableViewDelegate,UITableViewDataSource{
 }
 extension MovieListViewController: MovieListView {
     
-    func finishLoading(movies: [Movie]?) {
-        dataSource = movies
+    func finishLoading() {
         removeLoadingIndicator()
         moviesTable.reloadData()
     }
