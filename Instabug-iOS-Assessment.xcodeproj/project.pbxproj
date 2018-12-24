@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		10401A9421CDA3EF00DC3815 /* MovieListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10401A9321CDA3EF00DC3815 /* MovieListPresenter.swift */; };
 		10401A9921CDB46C00DC3815 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10401A9821CDB46C00DC3815 /* UIImage+Extension.swift */; };
-		10538FAE21CE778D00D69BF2 /* MyMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10538FAD21CE778D00D69BF2 /* MyMovieViewController.swift */; };
-		10538FB021CE779B00D69BF2 /* MyMoviePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10538FAF21CE779B00D69BF2 /* MyMoviePresenter.swift */; };
+		10538FAE21CE778D00D69BF2 /* CreateMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10538FAD21CE778D00D69BF2 /* CreateMovieViewController.swift */; };
+		10538FB021CE779B00D69BF2 /* CreateMoviePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10538FAF21CE779B00D69BF2 /* CreateMoviePresenter.swift */; };
 		10538FB221CE7C5200D69BF2 /* UIViewController+Extensios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10538FB121CE7C5200D69BF2 /* UIViewController+Extensios.swift */; };
 		1056FDF821CCF9F800DCC489 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FDF721CCF9F800DCC489 /* AppDelegate.swift */; };
 		1056FDFA21CCF9F800DCC489 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FDF921CCF9F800DCC489 /* MovieListView.swift */; };
@@ -55,8 +55,8 @@
 /* Begin PBXFileReference section */
 		10401A9321CDA3EF00DC3815 /* MovieListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenter.swift; sourceTree = "<group>"; };
 		10401A9821CDB46C00DC3815 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
-		10538FAD21CE778D00D69BF2 /* MyMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMovieViewController.swift; sourceTree = "<group>"; };
-		10538FAF21CE779B00D69BF2 /* MyMoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoviePresenter.swift; sourceTree = "<group>"; };
+		10538FAD21CE778D00D69BF2 /* CreateMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMovieViewController.swift; sourceTree = "<group>"; };
+		10538FAF21CE779B00D69BF2 /* CreateMoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMoviePresenter.swift; sourceTree = "<group>"; };
 		10538FB121CE7C5200D69BF2 /* UIViewController+Extensios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensios.swift"; sourceTree = "<group>"; };
 		1056FDF421CCF9F800DCC489 /* Instabug-iOS-Assessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Instabug-iOS-Assessment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1056FDF721CCF9F800DCC489 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,7 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				10401A9321CDA3EF00DC3815 /* MovieListPresenter.swift */,
-				10538FAF21CE779B00D69BF2 /* MyMoviePresenter.swift */,
+				10538FAF21CE779B00D69BF2 /* CreateMoviePresenter.swift */,
 				10E14D2021CEA65300257619 /* MovieDataSource.swift */,
 			);
 			path = ViewPresenter;
@@ -248,7 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				1056FDF921CCF9F800DCC489 /* MovieListView.swift */,
-				10538FAD21CE778D00D69BF2 /* MyMovieViewController.swift */,
+				10538FAD21CE778D00D69BF2 /* CreateMovieViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -400,9 +400,9 @@
 				1056FDFA21CCF9F800DCC489 /* MovieListView.swift in Sources */,
 				10DF97F321CF0A3E0040FF70 /* MovieInMemoryRepository.swift in Sources */,
 				10DF97F121CF09FE0040FF70 /* MovieAPIRepository.swift in Sources */,
-				10538FAE21CE778D00D69BF2 /* MyMovieViewController.swift in Sources */,
+				10538FAE21CE778D00D69BF2 /* CreateMovieViewController.swift in Sources */,
 				10401A9921CDB46C00DC3815 /* UIImage+Extension.swift in Sources */,
-				10538FB021CE779B00D69BF2 /* MyMoviePresenter.swift in Sources */,
+				10538FB021CE779B00D69BF2 /* CreateMoviePresenter.swift in Sources */,
 				10538FB221CE7C5200D69BF2 /* UIViewController+Extensios.swift in Sources */,
 				10E14D2721CED02A00257619 /* PosterURLConversion.swift in Sources */,
 				1056FE3E21CD59CE00DCC489 /* EndPoint.swift in Sources */,

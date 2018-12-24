@@ -21,16 +21,7 @@ class MovieListViewController: UIViewController {
     
     
     @IBAction func moviesSegmentSelected(_ sender: UISegmentedControl) {
-        switch moviesSegmentControl.selectedSegmentIndex {
-        case 0:
-            self.presenter.presentMovies(selectedSegment: .AllMovies)
-            break
-        case 1:
-            self.presenter.presentMovies(selectedSegment: .MyMovies)
-            break
-        default:
-            break
-        }
+        self.presenter.presentMovies( selectedSegment: SelectedSegment(rawValue: moviesSegmentControl!.selectedSegmentIndex)!)
     }
     
     override func viewDidLoad() {
@@ -48,17 +39,7 @@ class MovieListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        switch moviesSegmentControl.selectedSegmentIndex {
-        case 0:
-            self.presenter.presentMovies(selectedSegment: .AllMovies)
-            break
-        case 1:
-            self.presenter.presentMovies(selectedSegment: .MyMovies)
-            break
-        default:
-            break
-        }
-        
+        self.presenter.presentMovies( selectedSegment: SelectedSegment(rawValue: moviesSegmentControl!.selectedSegmentIndex)!)
     }
 
 }
@@ -87,21 +68,12 @@ extension MovieListViewController: UITableViewDelegate,UITableViewDataSource{
     
     @objc func pressed(sender: UIButton!) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Movies", bundle:nil)
-        let addMovieViewController = storyBoard.instantiateViewController(withIdentifier: "MyMovieViewController") as! MyMovieViewController
+        let addMovieViewController = storyBoard.instantiateViewController(withIdentifier: "MyMovieViewController") as! CreateMovieViewController
         self.present(addMovieViewController, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        switch moviesSegmentControl.selectedSegmentIndex {
-        case 0:
-            loadMore(indexPath: indexPath, type: .AllMovies)
-            break
-        case 1:
-            loadMore(indexPath: indexPath, type: .MyMovies)
-            break
-        default:
-            break
-        }
+        loadMore(indexPath: indexPath, type: SelectedSegment(rawValue: moviesSegmentControl!.selectedSegmentIndex)!)
         
     }
     
@@ -161,7 +133,8 @@ extension MovieListViewController: MovieListView {
         moviesTable.reloadData()
     }
 }
-enum SelectedSegment{
-    case AllMovies
-    case MyMovies
+
+enum SelectedSegment:Int{
+    case AllMovies = 0
+    case MyMovies = 1
 }
