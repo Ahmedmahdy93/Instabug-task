@@ -16,6 +16,7 @@ class MovieListPresenter {
     weak private var view: MovieListView?
     
     private let dataSourceInstance = MovieDataSource.instance
+    var dataSource : [Movie]?
     
     var providerInstance: MovieRepository?
     
@@ -38,6 +39,7 @@ class MovieListPresenter {
 }
 extension MovieListPresenter: MovieRepositoryListener {
     func onFinishLoadingMovies(movies: [Movie]?) {
-        self.view?.finishLoading(movies: movies)
+        self.dataSource = movies
+        self.view?.finishLoading()
     }
 }
