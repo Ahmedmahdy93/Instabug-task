@@ -51,8 +51,10 @@ class MovieInMemoryRepository: MovieRepository {
     func canLoadMore(indexPath: IndexPath) -> Bool{
         if let movies = self.movies {
             let lastRow = movies.count - 1
-            if indexPath.row == lastRow && self.lastMovieResult!.page < self.lastMovieResult!.total_pages {
-                return true
+            if let page = self.lastMovieResult?.page {
+                if indexPath.row == lastRow && page < self.lastMovieResult!.total_pages {
+                    return true
+                }
             }
         }
         return false

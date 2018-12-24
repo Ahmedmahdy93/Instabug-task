@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MovieListView: NSObjectProtocol {
+protocol MovieListViewDelegate: NSObjectProtocol {
     func finishLoading()
 }
 
@@ -21,7 +21,7 @@ class MovieListViewController: UIViewController {
     
     
     @IBAction func moviesSegmentSelected(_ sender: UISegmentedControl) {
-        self.presenter.presentMovies( selectedSegment: SelectedSegment(rawValue: moviesSegmentControl!.selectedSegmentIndex)!)
+        self.presenter.setProviderInstance( selectedSegment: SelectedSegment(rawValue: moviesSegmentControl!.selectedSegmentIndex)!)
     }
     
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class MovieListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.presenter.presentMovies( selectedSegment: SelectedSegment(rawValue: moviesSegmentControl!.selectedSegmentIndex)!)
+        self.presenter.setProviderInstance( selectedSegment: SelectedSegment(rawValue: moviesSegmentControl!.selectedSegmentIndex)!)
     }
 
 }
@@ -68,7 +68,9 @@ extension MovieListViewController: UITableViewDelegate,UITableViewDataSource{
     
     @objc func pressed(sender: UIButton!) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Movies", bundle:nil)
-        let addMovieViewController = storyBoard.instantiateViewController(withIdentifier: "MyMovieViewController") as! CreateMovieViewController
+        guard let addMovieViewController = storyBoard.instantiateViewController(withIdentifier: "MyMovieViewController") as? CreateMovieViewController else {
+            return
+        }
         self.present(addMovieViewController, animated: true, completion: nil)
     }
     
@@ -94,7 +96,9 @@ extension MovieListViewController: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: MovieListCell = tableView.dequeueReusableCell(withIdentifier: "MovieListCell", for: indexPath) as! MovieListCell
+        guard let cell: MovieListCell = tableView.dequeueReusableCell(withIdentifier: "MovieListCell", for: indexPath) as? MovieListCell else {
+            return UITableViewCell()
+        }
         
         if let movie = self.presenter.dataSource?[indexPath.row] {
             cell.titleLabel.text = movie.title
@@ -126,11 +130,11 @@ extension MovieListViewController: UITableViewDelegate,UITableViewDataSource{
         self.moviesTable.tableFooterView?.isHidden = true
     }
 }
-extension MovieListViewController: MovieListView {
+extension MovieListViewController: MovieListViewDelegate {
     
     func finishLoading() {
-        removeLoadingIndicator()
         moviesTable.reloadData()
+        removeLoadingIndicator()
     }
 }
 

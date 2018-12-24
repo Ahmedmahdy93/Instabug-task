@@ -13,22 +13,31 @@ protocol MovieRepositoryListener {
 }
 class MovieListPresenter {
     
-    weak private var view: MovieListView?
+    weak private var view: MovieListViewDelegate?
     
     private let dataSourceInstance = MovieDataSource.instance
     var dataSource : [Movie]?
     
     var providerInstance: MovieRepository?
     
-    func presentMovies(selectedSegment: SelectedSegment){
+    func setProviderInstance(selectedSegment: SelectedSegment){
         providerInstance = MovieProviderRepository.getProviderInstance(providerType: selectedSegment)
-        providerInstance?.setDelegat(view: self)
+        setDelegate(view: self)
+        loadMoview()
+    }
+    func loadMoview(){
         providerInstance?.loadMovies()
     }
-    func canLoadMore(indexPath: IndexPath) -> Bool {
-        return (providerInstance?.canLoadMore(indexPath: indexPath))!
+    func setDelegate(view: MovieRepositoryListener){
+        providerInstance?.setDelegat(view: view)
     }
-    func setView(view: MovieListView) {
+    func canLoadMore(indexPath: IndexPath) -> Bool {
+        if let provider = providerInstance {
+            return provider.canLoadMore(indexPath: indexPath)
+        }
+        return false
+    }
+    func setView(view: MovieListViewDelegate) {
         self.view = view
     }
 
