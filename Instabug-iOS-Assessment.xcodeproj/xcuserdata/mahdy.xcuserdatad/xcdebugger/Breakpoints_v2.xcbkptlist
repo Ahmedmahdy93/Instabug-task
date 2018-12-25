@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Instabug-iOS-AssessmentTests/MovieDataSourceTests.swift"
+            timestampString = "567442302.561461"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "MovieDataSourceTests"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Instabug_iOS_AssessmentTests.MovieDataSourceTests.__allocating_init(invocation: Swift.Optional&lt;__C.NSInvocation&gt;) -&gt; Instabug_iOS_AssessmentTests.MovieDataSourceTests"
+                  moduleName = "Instabug-iOS-AssessmentTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mahdy/Projects/Instabug-iOS-Assessment/Instabug-iOS-AssessmentTests/MovieDataSourceTests.swift"
+                  timestampString = "567441648.116093"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Instabug_iOS_AssessmentTests.MovieDataSourceTests.init(invocation: Swift.Optional&lt;__C.NSInvocation&gt;) -&gt; Instabug_iOS_AssessmentTests.MovieDataSourceTests"
+                  moduleName = "Instabug-iOS-AssessmentTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mahdy/Projects/Instabug-iOS-Assessment/Instabug-iOS-AssessmentTests/MovieDataSourceTests.swift"
+                  timestampString = "567441648.1188461"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Instabug_iOS_AssessmentTests.MovieDataSourceTests.__allocating_init(selector: ObjectiveC.Selector) -&gt; Instabug_iOS_AssessmentTests.MovieDataSourceTests"
+                  moduleName = "Instabug-iOS-AssessmentTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mahdy/Projects/Instabug-iOS-Assessment/Instabug-iOS-AssessmentTests/MovieDataSourceTests.swift"
+                  timestampString = "567441648.1203361"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Instabug_iOS_AssessmentTests.MovieDataSourceTests.init(selector: ObjectiveC.Selector) -&gt; Instabug_iOS_AssessmentTests.MovieDataSourceTests"
+                  moduleName = "Instabug-iOS-AssessmentTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mahdy/Projects/Instabug-iOS-Assessment/Instabug-iOS-AssessmentTests/MovieDataSourceTests.swift"
+                  timestampString = "567441648.121794"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Instabug_iOS_AssessmentTests.MovieDataSourceTests.__allocating_init() -&gt; Instabug_iOS_AssessmentTests.MovieDataSourceTests"
+                  moduleName = "Instabug-iOS-AssessmentTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mahdy/Projects/Instabug-iOS-Assessment/Instabug-iOS-AssessmentTests/MovieDataSourceTests.swift"
+                  timestampString = "567441648.123214"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Instabug_iOS_AssessmentTests.MovieDataSourceTests.init() -&gt; Instabug_iOS_AssessmentTests.MovieDataSourceTests"
+                  moduleName = "Instabug-iOS-AssessmentTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mahdy/Projects/Instabug-iOS-Assessment/Instabug-iOS-AssessmentTests/MovieDataSourceTests.swift"
+                  timestampString = "567441648.12462"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "86">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Instabug_iOS_AssessmentTests.MovieDataSourceTests.__deallocating_deinit"
+                  moduleName = "Instabug-iOS-AssessmentTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mahdy/Projects/Instabug-iOS-Assessment/Instabug-iOS-AssessmentTests/MovieDataSourceTests.swift"
+                  timestampString = "567441648.126022"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
