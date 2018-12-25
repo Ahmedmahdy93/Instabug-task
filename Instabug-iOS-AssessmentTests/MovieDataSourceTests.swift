@@ -10,15 +10,28 @@ import XCTest
 @testable import Instabug_iOS_Assessment
 
 class MovieDataSourceTests: XCTestCase {
-
-    let dataSourceInstance = MovieDataSource.instance
-
+    
+    class singltonStub: MovieDataSource {
+        
+    }
+    let dataSourceInstance = singltonStub.instance
+    override func setUp() {
+        singltonStub.instance.myMovies = nil
+    }
+    
     func testAddMovie() {
+        
         let movie = Movie(title: "first movie", overview: "over view", release_date: "12-10-2013", poster_path: "//someURL")
         dataSourceInstance.addNewMovie(movie: movie)
         XCTAssert(dataSourceInstance.myMovies != nil)
     }
-    
+    func testloadFromPageFail() {
+        var MoviesInPage : [Movie]?
+        dataSourceInstance.loadDataFromPage(page: 1) { (result) in
+            MoviesInPage = result?.results
+        }
+        XCTAssert(MoviesInPage == nil)
+    }
     func testLoadMoviesFromPage() {
         for i in 1...10{
             let movie = Movie(title: "movie \(i)", overview: "over view \(i)", release_date: "12-10-2013\(i)", poster_path: "//someURL\(i)")
@@ -32,7 +45,8 @@ class MovieDataSourceTests: XCTestCase {
         dataSourceInstance.loadDataFromPage(page: 2) { (result) in
             MoviesInPage = result?.results
         }
-        XCTAssert(MoviesInPage?.count == 4)
+        XCTAssert(MoviesInPage?.count == (dataSourceInstance.myMovies?.count)! - 6)
     }
+    
 
 }

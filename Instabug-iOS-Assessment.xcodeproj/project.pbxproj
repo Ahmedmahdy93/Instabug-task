@@ -10,7 +10,6 @@
 		1036846F21D10B3C000477B5 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1036846E21D10B3C000477B5 /* TestHelper.swift */; };
 		1036847221D110B0000477B5 /* MockMovieClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1036847121D110B0000477B5 /* MockMovieClient.swift */; };
 		1036847621D11EAC000477B5 /* MockMovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1036847521D11EAC000477B5 /* MockMovieRepository.swift */; };
-		1036847821D1219B000477B5 /* MockMovieRepositoryListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1036847721D1219B000477B5 /* MockMovieRepositoryListener.swift */; };
 		1036847A21D1228F000477B5 /* MovieListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1036847921D1228F000477B5 /* MovieListPresenterTests.swift */; };
 		10401A9421CDA3EF00DC3815 /* MovieListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10401A9321CDA3EF00DC3815 /* MovieListPresenter.swift */; };
 		10401A9921CDB46C00DC3815 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10401A9821CDB46C00DC3815 /* UIImage+Extension.swift */; };
@@ -32,6 +31,7 @@
 		1056FE5021CD7CB500DCC489 /* MovieListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE4F21CD7CB500DCC489 /* MovieListCell.swift */; };
 		10DB323721D23A9400BB183A /* JsonDataExamble.json in Resources */ = {isa = PBXBuildFile; fileRef = 10DB323621D23A9400BB183A /* JsonDataExamble.json */; };
 		10DB323921D260CB00BB183A /* MovieDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DB323821D260CB00BB183A /* MovieDataSourceTests.swift */; };
+		10DB323B21D27A3400BB183A /* CreateMoviePresenterTes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DB323A21D27A3400BB183A /* CreateMoviePresenterTes.swift */; };
 		10DF97EE21CF09680040FF70 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DF97ED21CF09680040FF70 /* MovieRepository.swift */; };
 		10DF97F121CF09FE0040FF70 /* MovieAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DF97F021CF09FE0040FF70 /* MovieAPIRepository.swift */; };
 		10DF97F321CF0A3E0040FF70 /* MovieInMemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DF97F221CF0A3E0040FF70 /* MovieInMemoryRepository.swift */; };
@@ -62,7 +62,6 @@
 		1036846E21D10B3C000477B5 /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 		1036847121D110B0000477B5 /* MockMovieClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieClient.swift; sourceTree = "<group>"; };
 		1036847521D11EAC000477B5 /* MockMovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieRepository.swift; sourceTree = "<group>"; };
-		1036847721D1219B000477B5 /* MockMovieRepositoryListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieRepositoryListener.swift; sourceTree = "<group>"; };
 		1036847921D1228F000477B5 /* MovieListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenterTests.swift; sourceTree = "<group>"; };
 		10401A9321CDA3EF00DC3815 /* MovieListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenter.swift; sourceTree = "<group>"; };
 		10401A9821CDB46C00DC3815 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -90,6 +89,7 @@
 		1056FE4F21CD7CB500DCC489 /* MovieListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListCell.swift; sourceTree = "<group>"; };
 		10DB323621D23A9400BB183A /* JsonDataExamble.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JsonDataExamble.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		10DB323821D260CB00BB183A /* MovieDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataSourceTests.swift; sourceTree = "<group>"; };
+		10DB323A21D27A3400BB183A /* CreateMoviePresenterTes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMoviePresenterTes.swift; sourceTree = "<group>"; };
 		10DF97ED21CF09680040FF70 /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
 		10DF97F021CF09FE0040FF70 /* MovieAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIRepository.swift; sourceTree = "<group>"; };
 		10DF97F221CF0A3E0040FF70 /* MovieInMemoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInMemoryRepository.swift; sourceTree = "<group>"; };
@@ -127,7 +127,6 @@
 		1036847021D10FDB000477B5 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				1036847721D1219B000477B5 /* MockMovieRepositoryListener.swift */,
 				1036847121D110B0000477B5 /* MockMovieClient.swift */,
 				1036847521D11EAC000477B5 /* MockMovieRepository.swift */,
 			);
@@ -188,6 +187,7 @@
 				1056FE0E21CCF9FA00DCC489 /* Info.plist */,
 				10DB323621D23A9400BB183A /* JsonDataExamble.json */,
 				1036846E21D10B3C000477B5 /* TestHelper.swift */,
+				10DB323A21D27A3400BB183A /* CreateMoviePresenterTes.swift */,
 				1036847921D1228F000477B5 /* MovieListPresenterTests.swift */,
 				10DB323821D260CB00BB183A /* MovieDataSourceTests.swift */,
 			);
@@ -452,8 +452,8 @@
 				1036846F21D10B3C000477B5 /* TestHelper.swift in Sources */,
 				1036847621D11EAC000477B5 /* MockMovieRepository.swift in Sources */,
 				1036847A21D1228F000477B5 /* MovieListPresenterTests.swift in Sources */,
-				1036847821D1219B000477B5 /* MockMovieRepositoryListener.swift in Sources */,
 				1036847221D110B0000477B5 /* MockMovieClient.swift in Sources */,
+				10DB323B21D27A3400BB183A /* CreateMoviePresenterTes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
