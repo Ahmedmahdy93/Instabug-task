@@ -39,12 +39,6 @@ extension APIClient {
             }
             if httpResponse.statusCode == 200 {
                 if let data = data {
-//                    do {
-//                        let genericModel = try JSONDecoder().decode(decodingType, from: data)
-//                        completion(.success(genericModel))
-//                    } catch {
-//                        completion(.failure(.jsonConversionFailure))
-//                    }
                     self.decodeJsonResponse(decodingType: decodingType, jsonObject: data, completion: completion)
                 } else {
                     completion(.failure(.invalidData))
