@@ -21,7 +21,6 @@
 		1056FDFA21CCF9F800DCC489 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FDF921CCF9F800DCC489 /* MovieListViewController.swift */; };
 		1056FDFD21CCF9F800DCC489 /* Movies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1056FDFB21CCF9F800DCC489 /* Movies.storyboard */; };
 		1056FDFF21CCF9FA00DCC489 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1056FDFE21CCF9FA00DCC489 /* Assets.xcassets */; };
-		1056FE0D21CCF9FA00DCC489 /* Instabug_iOS_AssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE0C21CCF9FA00DCC489 /* Instabug_iOS_AssessmentTests.swift */; };
 		1056FE1821CCF9FA00DCC489 /* Instabug_iOS_AssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE1721CCF9FA00DCC489 /* Instabug_iOS_AssessmentUITests.swift */; };
 		1056FE3C21CD599E00DCC489 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE3B21CD599E00DCC489 /* Result.swift */; };
 		1056FE3E21CD59CE00DCC489 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE3D21CD59CE00DCC489 /* EndPoint.swift */; };
@@ -32,6 +31,7 @@
 		1056FE4C21CD7C8300DCC489 /* MovieListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1056FE4B21CD7C8300DCC489 /* MovieListCell.xib */; };
 		1056FE5021CD7CB500DCC489 /* MovieListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056FE4F21CD7CB500DCC489 /* MovieListCell.swift */; };
 		10DB323721D23A9400BB183A /* JsonDataExamble.json in Resources */ = {isa = PBXBuildFile; fileRef = 10DB323621D23A9400BB183A /* JsonDataExamble.json */; };
+		10DB323921D260CB00BB183A /* MovieDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DB323821D260CB00BB183A /* MovieDataSourceTests.swift */; };
 		10DF97EE21CF09680040FF70 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DF97ED21CF09680040FF70 /* MovieRepository.swift */; };
 		10DF97F121CF09FE0040FF70 /* MovieAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DF97F021CF09FE0040FF70 /* MovieAPIRepository.swift */; };
 		10DF97F321CF0A3E0040FF70 /* MovieInMemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DF97F221CF0A3E0040FF70 /* MovieInMemoryRepository.swift */; };
@@ -76,7 +76,6 @@
 		1056FDFE21CCF9FA00DCC489 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1056FE0321CCF9FA00DCC489 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1056FE0821CCF9FA00DCC489 /* Instabug-iOS-AssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Instabug-iOS-AssessmentTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1056FE0C21CCF9FA00DCC489 /* Instabug_iOS_AssessmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instabug_iOS_AssessmentTests.swift; sourceTree = "<group>"; };
 		1056FE0E21CCF9FA00DCC489 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1056FE1321CCF9FA00DCC489 /* Instabug-iOS-AssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Instabug-iOS-AssessmentUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1056FE1721CCF9FA00DCC489 /* Instabug_iOS_AssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instabug_iOS_AssessmentUITests.swift; sourceTree = "<group>"; };
@@ -90,6 +89,7 @@
 		1056FE4B21CD7C8300DCC489 /* MovieListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListCell.xib; sourceTree = "<group>"; };
 		1056FE4F21CD7CB500DCC489 /* MovieListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListCell.swift; sourceTree = "<group>"; };
 		10DB323621D23A9400BB183A /* JsonDataExamble.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JsonDataExamble.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
+		10DB323821D260CB00BB183A /* MovieDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataSourceTests.swift; sourceTree = "<group>"; };
 		10DF97ED21CF09680040FF70 /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
 		10DF97F021CF09FE0040FF70 /* MovieAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIRepository.swift; sourceTree = "<group>"; };
 		10DF97F221CF0A3E0040FF70 /* MovieInMemoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInMemoryRepository.swift; sourceTree = "<group>"; };
@@ -185,11 +185,11 @@
 			isa = PBXGroup;
 			children = (
 				1036847021D10FDB000477B5 /* Repository */,
-				1056FE0C21CCF9FA00DCC489 /* Instabug_iOS_AssessmentTests.swift */,
 				1056FE0E21CCF9FA00DCC489 /* Info.plist */,
 				10DB323621D23A9400BB183A /* JsonDataExamble.json */,
 				1036846E21D10B3C000477B5 /* TestHelper.swift */,
 				1036847921D1228F000477B5 /* MovieListPresenterTests.swift */,
+				10DB323821D260CB00BB183A /* MovieDataSourceTests.swift */,
 			);
 			path = "Instabug-iOS-AssessmentTests";
 			sourceTree = "<group>";
@@ -448,7 +448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1056FE0D21CCF9FA00DCC489 /* Instabug_iOS_AssessmentTests.swift in Sources */,
+				10DB323921D260CB00BB183A /* MovieDataSourceTests.swift in Sources */,
 				1036846F21D10B3C000477B5 /* TestHelper.swift in Sources */,
 				1036847621D11EAC000477B5 /* MockMovieRepository.swift in Sources */,
 				1036847A21D1228F000477B5 /* MovieListPresenterTests.swift in Sources */,

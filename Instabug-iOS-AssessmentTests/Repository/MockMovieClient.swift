@@ -30,8 +30,7 @@ class MockGetMoviesNetworkProvider: MovieClient {
                         }
                 }
             } catch {
-                // handle error
-                print(error)
+                completion(.failure(.invalidData))
             }
         }
     }
