@@ -83,13 +83,4 @@ class Instabug_iOS_AssessmentUITests: XCTestCase {
         let lastCell = tablesQuery.children(matching: .cell).staticTexts["This is movie 5 overview"].firstMatch
         XCTAssert(lastCell.exists && lastCell.isHittable)
     }
-    func testMoreLoadedMovies(){
-        let app = XCUIApplication()
-        let tablesQuery = app.tables
-        let lastRow: Int = tablesQuery.numberOfRows(inSection: 0) - 1
-        XCTAssert(tablesQuery.children(matching: .cell).count > 0)
-    }
-    
-    let indexPath = IndexPath(row: lastRow, section: 0);
-    self.tableview.scrollToRow(at: indexPath, at: .top, animated: false)
 }

@@ -39,12 +39,13 @@ extension APIClient {
             }
             if httpResponse.statusCode == 200 {
                 if let data = data {
-                    do {
-                        let genericModel = try JSONDecoder().decode(decodingType, from: data)
-                        completion(.success(genericModel))
-                    } catch {
-                        completion(.failure(.jsonConversionFailure))
-                    }
+//                    do {
+//                        let genericModel = try JSONDecoder().decode(decodingType, from: data)
+//                        completion(.success(genericModel))
+//                    } catch {
+//                        completion(.failure(.jsonConversionFailure))
+//                    }
+                    self.decodeJsonResponse(decodingType: decodingType, jsonObject: data, completion: completion)
                 } else {
                     completion(.failure(.invalidData))
                 }
@@ -53,6 +54,14 @@ extension APIClient {
             }
         }
         return task
+    }
+    func decodeJsonResponse<T: Decodable>(decodingType:T.Type,jsonObject: Data, completion: @escaping JSONTaskCompletionHandler){
+        do {
+            let genericModel = try JSONDecoder().decode(decodingType, from: jsonObject)
+            completion(.success(genericModel))
+        } catch {
+            completion(.failure(.jsonConversionFailure))
+        }
     }
     func fetch<T: Decodable>(with request: URLRequest, decode: @escaping (Decodable) -> T?, completion: @escaping (Result<T, APIError>) -> Void) {
         let task = decodingTask(with: request, decodingType: T.self) { result in

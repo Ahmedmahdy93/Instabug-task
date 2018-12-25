@@ -11,8 +11,29 @@ import Foundation
 
 class MockGetMoviesNetworkProvider: MovieClient {
     override func discover(page: Int, completion: @escaping (Result<MovieResult?, APIError>) -> Void) {
-        completion(.success(TestHelper.movieInformation))
-
+        let client = MovieClient()
+        let bundle = Bundle(for: type(of: self))
+        if let path = bundle.path(forResource: "JsonDataExamble", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                
+                client.decodeJsonResponse(decodingType: MovieResult.self, jsonObject: data) { (result) in
+                        switch result {
+                        case .success(let json):
+                            if let value = json as? MovieResult {
+                                completion(.success(value))
+                            } else {
+                                completion(.failure(.jsonParsingFailure))
+                            }
+                        case .failure(let error):
+                            completion(.failure(error))
+                        }
+                }
+            } catch {
+                // handle error
+                print(error)
+            }
+        }
     }
     
 }
