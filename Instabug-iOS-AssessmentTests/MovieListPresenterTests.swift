@@ -11,8 +11,7 @@ import XCTest
 
 class MovieListPresenterTests: XCTestCase {
     let presenter = MovieListPresenter()
-//    let delegate = MockMovieRepositoryListener()
-
+    
     override func setUp() {
         presenter.providerInstance = MockMovieRepository()
         presenter.setDelegate(view: presenter)
