@@ -1,4 +1,4 @@
-# Instabug-task
+# The-Movie-DB
 ![](header.png)
 
 ## Requirements
